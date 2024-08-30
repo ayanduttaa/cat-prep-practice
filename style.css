@@ -48,9 +48,12 @@ body{
     border-radius: 0;
 }
 
-
-  
-
+@media only screen and (max-width: 767px) {
+    /* Styles for mobile devices */
+    .ansSubmit{
+        width: 100%;
+    }
+  }
 /*COMMON*/
 
 
