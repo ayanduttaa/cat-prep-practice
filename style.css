@@ -1,0 +1,55 @@
+body{
+    user-select: none;
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.btnHolder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 60vw;
+
+}
+
+.choiceBtn{
+    margin: 5px;
+    border-radius: 0;
+    width: 100%;
+}
+
+/*COMMON*/
+.plusHolder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60vw;
+    flex-direction: column;
+}
+.qHolder{
+    
+}
+.text{
+    color: white;
+    font-size: xx-large;
+}
+.ansSubmit{
+    width: 60%;
+}
+.inputBox{
+    text-align: center;
+    border-radius: 0;
+}
+/*COMMON*/
+
+
+/*PLUS PAGE*/
+
+/*PLUS PAGE*/
