@@ -9,20 +9,63 @@
   </head>
   <body>
 
-    
-
     <div class="plusHolder">
-        <div id="qHolder">
-            <span class="text" id="fValue">20000</span>
-            <span class="text">+</span>
-            <span class="text" id="lValue">30000</span>
-        </div>
-        
-        <div class="input-group mb-3 ansSubmit">
-            <input type="number" class="form-control inputBox bg-black text-white" aria-label="Username" aria-describedby="basic-addon1">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">😺</button>
-          </div>
+      <div id="qHolder">
+        <span class="text" id="fValue"></span>
+        <span class="text">+</span>
+        <span class="text" id="lValue"></span>
+      </div>
+
+      <div class="input-group mb-3 ansSubmit">
+        <input type="number" id="answerInput" class="form-control inputBox bg-black text-white" aria-label="Username" aria-describedby="basic-addon1">
+        <button class="btn btn-outline-secondary" type="button" id="submitButton">Submit</button>
+      </div>
+
+      <div class ="text" id="feedback"></div>
     </div>
+
+    <script>
+      const fValueSpan = document.getElementById('fValue');
+      const lValueSpan = document.getElementById('lValue');
+      const answerInput = document.getElementById('answerInput');
+      const submitButton = document.getElementById('submitButton');
+      const feedbackDiv = document.getElementById('feedback');
+
+      function generateRandomNumbers() {
+        const firstValue = Math.floor(Math.random() * 100); // Generate random number between 0 and 99
+        const secondValue = Math.floor(Math.random() * 100); // Generate another random number
+        return { firstValue, secondValue };
+      }
+
+      function updateQuestion(values) {
+        fValueSpan.textContent = values.firstValue;
+        lValueSpan.textContent = values.secondValue;
+      }
+
+      function checkAnswer() {
+        const firstValue = parseInt(fValueSpan.textContent);
+        const secondValue = parseInt(lValueSpan.textContent);
+        const userAnswer = parseInt(answerInput.value);
+        const correctAnswer = firstValue + secondValue;
+
+        if (userAnswer === correctAnswer) {
+          feedbackDiv.textContent = 'Correct!';
+        } else {
+          feedbackDiv.textContent = `Incorrect. The answer is ${correctAnswer}`;
+        }
+
+        // Generate new numbers after checking
+        const newValues = generateRandomNumbers();
+        updateQuestion(newValues);
+        answerInput.value = ''; // Clear answer field for new question
+      }
+
+      submitButton.addEventListener('click', checkAnswer);
+
+      // Generate and display initial numbers on page load
+      const initialValues = generateRandomNumbers();
+      updateQuestion(initialValues);
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
