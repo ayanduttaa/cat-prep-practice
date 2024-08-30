@@ -26,6 +26,18 @@ body{
 }
 
 /*COMMON*/
+.floating-button-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+  
+  .floating-button {
+    border-radius: 0%;
+    cursor: pointer;
+  }
+
+
 .plusHolder{
     display: flex;
     align-items: center;
