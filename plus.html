@@ -21,7 +21,10 @@
         <button class="btn btn-outline-secondary" type="button" id="submitButton">Submit</button>
       </div>
 
-      <div class ="text" id="feedback"></div>
+      <div class="feedback">
+        <span id="feedback" style="color:white"></span><br>
+        <span id="streak" style="color:white">Streak: 0</span>
+      </div>
     </div>
 
     <script>
@@ -30,6 +33,9 @@
       const answerInput = document.getElementById('answerInput');
       const submitButton = document.getElementById('submitButton');
       const feedbackDiv = document.getElementById('feedback');
+      const streakSpan = document.getElementById('streak');
+
+      let currentStreak = 0; // Initialize streak counter
 
       function generateRandomNumbers() {
         const firstValue = Math.floor(Math.random() * 100); // Generate random number between 0 and 99
@@ -50,9 +56,13 @@
 
         if (userAnswer === correctAnswer) {
           feedbackDiv.textContent = 'Correct!';
+          currentStreak++; // Increment streak on correct answer
         } else {
           feedbackDiv.textContent = `Incorrect. The answer is ${correctAnswer}`;
+          currentStreak = 0; // Reset streak on incorrect answer
         }
+
+        streakSpan.textContent = `Streak: ${currentStreak}`;
 
         // Generate new numbers after checking
         const newValues = generateRandomNumbers();
